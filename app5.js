@@ -63,7 +63,44 @@ app.get("/janken", (req, res) => {
     total: total
   };
   
+  
   res.render('janken', display);
 });
+app.get("/guess", (req, res) => {
+  let userGuess = Number(req.query.guess);
+  let correctNumber = Math.floor(Math.random() * 10);
+
+  console.log({ userGuess, correctNumber });
+  let result = '';
+
+  if (userGuess == correctNumber) {
+    result = '正解！';
+  } else {
+    result = `残念！正解は ${correctNumber} でした。`;
+  }
+
+  res.send(result);
+});
+
+const pokemonType = {
+  ほのお: ['ヒトカゲ', 'リザードン', 'ブーバー', 'ファイヤー'],
+  みず: ['ゼニガメ', 'カメックス', 'ギャラドス', 'シャワーズ'],
+  くさ: ['フシギダネ', 'ナッシー', 'ラフレシア', 'ジュプトル']
+};
+
+app.get("/pokemon", (req, res) => {
+  const type = req.query.type;
+  let result = '';
+
+  if (pokemonType[type]) {
+    const pokemonList = pokemonType[type];
+    const randomPokemon = pokemonList[Math.floor(Math.random() * pokemonList.length)];
+    result = randomPokemon;
+  } 
+
+  res.send(result);
+});
+
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
+
