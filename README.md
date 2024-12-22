@@ -16,49 +16,31 @@ luck.ejs |プログラム本体
 ```javascript
 
 ```
-## 各機能の説明
-### hello1
-"Hello"と，"Bon jour"を表示する
-### hello2
-"Hello"と，"Bon jour"を表示する
-### icon
-あらかじめ指定された画像を表示する
-### luck
-動作を開始すると，ランダムに6つの運勢から一つを選んで，今日の運勢として表示する
-### janken
-グー，チョキ，パーのうち一つを選んで入力すると，じゃんけんができる
-### guess
-数字を選択し入力すると，それがcpuと同じであれば正解になり違ければ不正解になるゲームができる
-### pokemon
-ポケモンのタイプを入力するとそのタイプのポケモンがランダムに表示される
-## 各機能の処理
-### 初期設定
-1. サーバーアプリケーションを立ち上げる
-1. ejsファイルを使用することを宣言
-1. publicファイルを使用できるようにする
+## app5.js
 
-### hello1
-1. message1に"Hello"、message2に"Bon jour"を設定する
-1. greet1と、greet2にそれぞれmessage1、message2を格納する
-1. greet1と、greet2をshow.ejsファイルに送信する
+### hello1及びhello2について
+1. app5.jsを起動する
+1. webブラウザでlocalhost8080/showにアクセスする
+1. メッセージを変数として，ejsに送る
+1. 画面に"hello world"と"Bon jour"が表示される．
+#### hello1とhello2の違い
+1. hello2はhello1とほぼ同じ機能であるが，異なる点として，hello1は変数にメッセージ内容を代入し，ejsに送るが，hello2ではメッセージを直接ejsに送る．
 
-### hello2
-1. greet1と、greet2にそれぞれ直接"Hello"、"Bon jour"を設定する
-1. greet1と、greet2をshow.ejsファイルに送信する
-
-### icon
-icon.ejsファイルに、filenameと、画像が表示されなかったときに、代わりとして表示されるalt属性のデータを送信する
+### iconについて
+1. app5.jsを起動する
+1. webブラウザでlocalhost8080/iconにアクセスする
+1. アイコンが表示される．(今回はappleロゴ)
 
 ### luck
-1. numに1~6のランダムな整数を格納する
-1. numの1~6に、それぞれの運勢(luck)を振り分ける
-1. 運勢の結果を表示する
-1. luck.ejsに、numと、luckのデータを送信する
-# janken
-##　使用方法
-1. ターミナルで```node app5.js```を入力して起動する
+1. app5.jsを起動する
+1. webブラウザでlocalhost8080/luckにアクセスする
+1. 2つの乱数が生成され，「大吉」「中吉」のどちらかが表示される
+
+### jankenについて
+1.　app5.jsを起動する
 1. Webブラウザでlocalhost:8080/public/janken.htmlにアクセスする
-1. 自分の手を入力し送信する
+1. 自分の手を選択する
+1. cpuの出す手と勝負し，勝敗が表示される
 ```mermaid
 flowchart TD;
 start["開始"];
@@ -81,11 +63,11 @@ loose --> end1
 if -->|same| same
 same --> end1
 ```
-# guess
-## 使用方法
-1. ターミナルで```node app5.js```を入力して起動する
+### guessについて
+1. app5.jsを起動する
 1. Webブラウザでlocalhost:8080/public/guess.htmlにアクセスする
 1. 自分の選んだ数字を入力し送信する
+1. 自分の選んだ数字とcpuが選んだ数字が一致するかを判定し，正解不正解を表示
 ```mermaid
 flowchart TD;
 start["開始"];
@@ -103,11 +85,11 @@ win --> end1
 if -->|不一致| loose
 loose --> end1
 ```
-# pokemon
-## 使用方法
-1. ターミナルで```node app5.js```を入力して起動する
+### pokemonについて
+1. app5.jsを起動する
 1. Webブラウザでlocalhost:8080/public/pokemon.htmlにアクセスする
-1. 自分の選んだ数字を入力し送信する
+1. 自分の選んだタイプを選択する
+1. Userによって選ばれたタイプの中からランダムにポケモンを排出する
 ```mermaid
 flowchart TD;
 start["開始"];
