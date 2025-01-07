@@ -120,4 +120,30 @@ type3 -->|であれば| c
 if -->result
 result --> end1
 ```
+```mermaid
+sequenceDiagram
+    participant A as Webブラウザ
+    participant B as Webサーバ
+    participant C as bbsクライアント
+    participant D as bbsサーバ
 
+
+    A->>B: Webページの取得
+    B-->>A: HTML,JS,CSS
+    A->>C: 起動
+    C->>D: POST(投稿の書き込み)
+    D-->>C: 投稿の数
+    C->>D: CHECK(投稿の更新)
+    D-->>C: 投稿の数
+    C->>D: READ(投稿の読み込み)
+    D-->>C: 投稿内容，名前
+    C->>D: POST(削除)
+    D-->>C: 削除したことを知らせる
+    C->>D: POST(編集)
+    D-->>C: 編集したことを知らせる
+    C-->>D: POST(検索)
+    D-->>C: 検索したメッセージを見つけて，投稿者,メッセージ,いいね👍数を知らせる
+    C->>D: POST(いいね👍)
+    D-->>C: いいね👍の数
+
+```

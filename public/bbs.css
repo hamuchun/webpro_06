@@ -11,3 +11,18 @@
 .mes {
     margin-left: 30px;
 }
+.cover {
+    display: flex;
+    justify-content: space-between; /* 左と右に要素を配置 */
+    align-items: center; /* 垂直方向の中央揃え */
+    padding: 10px;
+  }
+  
+  .name, .mes {
+    margin-right: auto; /* 左寄せ */
+  }
+  
+  .like-button, .dislike-button {
+    margin-left: 10px; /* ボタン間の余白を確保 */
+  }
+  
